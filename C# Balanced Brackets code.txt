@@ -1,0 +1,45 @@
+using System;
+
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+        char[] randomChars = new char[] {'[', '{', '}', ']'};
+        bool isRight = validateArray(randomChars);
+        Console.WriteLine(isRight);
+    }
+
+    public static char getOppositeChar(char inputChar) {
+        switch(inputChar){
+            case '(': return ')';
+            case '{': return '}';
+            case '[': return ']';
+            default: return '0';
+        }
+    }
+
+    public static bool validateArray(char[] inputChars) {
+        bool isRight = true;
+
+        if(inputChars.Length == 0) {
+            Console.WriteLine("Array shouldn't be empty.");
+           return isRight = false;
+        } else if(inputChars.Length%2 != 0) {
+            Console.WriteLine("Uneven array.");
+            return isRight = false;
+        } else {
+            for(int i=0; i<inputChars.Length/2; i++) {
+                char endChar = getOppositeChar(inputChars[i]);
+                Console.WriteLine("end char " + endChar);
+                Console.WriteLine("opposite side " + inputChars[(inputChars.Length-i-1)]);
+                Console.WriteLine("compare " + (endChar == inputChars[(inputChars.Length-i-1)]));
+
+                if(endChar != inputChars[(inputChars.Length-i-1)]) {
+                    return isRight = false;
+                }
+            }
+            return isRight; I LOVE YOU!!
+        }
+    }
+}

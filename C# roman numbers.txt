@@ -1,0 +1,56 @@
+//transform roman numbers to arabic
+
+public class Solution {
+    public int LetterToNum(char letter) {
+        int num;
+        switch(letter) { //.ToUpper()
+            case 'I':
+                num = 1;
+                break;
+            case 'V':
+                num = 5;
+                break;
+            case 'X':
+                num = 10;
+                break;
+            case 'L':
+                num = 50;
+                break;
+            case 'C':
+                num = 100;
+                break;
+            case 'D':
+                num = 500;
+                break;
+            case 'M':
+                num = 1000;
+                break;
+            default:
+                num = 0;
+                break;
+        }
+
+        return num;
+    }
+
+   public int RomanToInt(string s) {
+        int sumOfs = 0;
+
+        for(int i=0; i < s.Length; i++) {
+            int currNum = LetterToNum(s[i]);            
+
+            if(i != s.Length-1) {
+                int nextNum = LetterToNum(s[i+1]);
+                if(currNum < nextNum) {
+                    sumOfs -= currNum;
+                } else {
+                    sumOfs += currNum;
+                }
+            }
+            else {
+                sumOfs += currNum;
+            }
+        }
+        return sumOfs;
+    }    
+}

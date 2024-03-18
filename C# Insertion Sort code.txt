@@ -1,0 +1,43 @@
+using System;
+
+class Solution
+{
+    static void Main(string[] args)
+    {
+        int[] nums = {1, 5, 8, 9, 2, 4, 3, 7};
+        Console.WriteLine("Sorted original list:");
+        List<int> numList = sortNums(nums);
+
+        int numToInsert = 6;
+        Console.WriteLine("New number: " + numToInsert);
+        insertNum(numList, numToInsert);
+    }
+
+    public static List<int> sortNums(int[] nums) {
+        List<int> sortedNums = new List<int>();
+
+        if(nums.Length == 0) {
+            //trow an error
+            Console.WriteLine("Invalid input.");
+        } else {
+            sortedNums.AddRange(nums);
+            sortedNums.Sort();
+
+            foreach(int num in sortedNums) {
+                Console.WriteLine(num);
+            }
+        }
+
+        return sortedNums;
+    }
+
+    public static void insertNum(List<int> nums, int numToInsert) {
+        //if nums list isn't empty
+        nums.Add(numToInsert);
+        nums.Sort();
+        
+        foreach(int num in nums) {
+            Console.WriteLine(num);
+        }
+    }
+}
