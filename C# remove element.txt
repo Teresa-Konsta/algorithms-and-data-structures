@@ -1,0 +1,23 @@
+public class Solution {
+    public int RemoveElement(int[] nums, int val) {
+        List<int> listNums = new List<int>();
+        listNums.AddRange(nums);
+        List<int> expectedNums = new List<int>();
+
+        foreach(int num in listNums) {
+            if(num != val) {
+                expectedNums.Add(num);
+            }
+        }
+
+        /* alternative option
+        List<int> expectedNums = new List<int>();
+        for(int i=0; i<nums.Length; i++) {
+            if(nums[i] != val) {
+                expectedNums.Add(nums[i]);
+            }
+        }*/
+
+        return expectedNums.Count;
+    }
+}
