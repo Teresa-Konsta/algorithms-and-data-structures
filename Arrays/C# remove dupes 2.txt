@@ -1,0 +1,34 @@
+public class Solution {
+    public int RemoveDuplicates(int[] nums) {
+        List<int> noDupes = new List<int>();
+
+        for(int i=0; i<nums.Length; i++) {
+            if(!noDupes.Contains(nums[i])) {
+                noDupes.Add(nums[i]);
+            } else {
+                List<int> dupe = noDupes.Where(nm => nm == nums[i]).ToList();;
+                
+                //testing dupes
+                foreach(int j in dupe) {
+                    Console.Write(j + ", ");
+                }
+
+                if(dupe.Count() < 2) {
+                    noDupes.Add(nums[i]);
+                }
+            }
+        }
+
+        int[] noDupesArr = noDupes.ToArray();
+	
+	//testing
+    Console.WriteLine("");
+        for(int i=0; i<noDupesArr.Length; i++) {            
+            Console.Write(noDupesArr[i] + ", ");
+        }
+
+        Console.WriteLine("output: " + noDupesArr.Length);
+
+        return noDupesArr.Length;
+    }
+}
