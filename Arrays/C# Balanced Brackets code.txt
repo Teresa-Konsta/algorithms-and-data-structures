@@ -39,7 +39,7 @@ class Solution
                     return isRight = false;
                 }
             }
-            return isRight; I LOVE YOU!!
+            return isRight;
         }
     }
 }
