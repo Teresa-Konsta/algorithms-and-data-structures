@@ -1,0 +1,28 @@
+public class Solution {
+    public int MajorityElement(int[] nums) {
+        int max = 0;
+        int majorEl = 0;
+
+        //find out how many unique ints are in the array
+        List<int> noDupes = new List<int>();
+
+        for(int i=0; i<nums.Length; i++) {
+            if(!noDupes.Contains(nums[i])) {
+                noDupes.Add(nums[i]);
+            }
+        }
+
+        int[] noDupesArr = noDupes.ToArray();
+
+        for(int i = 0; i < noDupesArr.Length; i++) {
+            List<int> occurance = nums.Where(nm => nm == noDupesArr[i]).ToList();
+
+            if(occurance.Count() > max) {
+                max = occurance.Count();
+                majorEl = noDupesArr[i];
+            }
+        }
+
+        return majorEl;
+    }
+}

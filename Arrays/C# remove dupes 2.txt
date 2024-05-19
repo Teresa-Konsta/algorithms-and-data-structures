@@ -6,7 +6,7 @@ public class Solution {
             if(!noDupes.Contains(nums[i])) {
                 noDupes.Add(nums[i]);
             } else {
-                List<int> dupe = noDupes.Where(nm => nm == nums[i]).ToList();;
+                List<int> dupe = noDupes.Where(nm => nm == nums[i]).ToList();
                 
                 //testing dupes
                 foreach(int j in dupe) {
