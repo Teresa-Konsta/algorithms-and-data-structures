@@ -1,0 +1,27 @@
+public class Solution {
+    public void Rotate(int[] nums, int k) {
+        try{
+            if(k>0) {
+                int[] rotatedArr = new int[nums.Length];
+                int[] reverseArr = nums.Reverse().ToArray();
+
+                for(int i=1; i<=k; i++) {
+                    rotatedArr[i-1] = reverseArr[k-i];
+                }
+
+                for(int i=0; i<(nums.Length-k); i++){
+                    rotatedArr[k+i] = nums[i];
+                }
+
+                //testing
+                for(int i=0; i<rotatedArr.Length; i++) {
+                    Console.Write(rotatedArr[i] + ", ");
+                }
+            } else {
+                Console.WriteLine("k number should be greater than 0");
+            }
+        } catch(Exception ex){
+            Console.WriteLine("Error: {0}", ex.Message);
+        }
+    }
+}
