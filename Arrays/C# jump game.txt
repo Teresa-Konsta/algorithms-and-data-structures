@@ -1,0 +1,22 @@
+//given than there can be just one jump
+public class Solution {
+    public bool CanJump(int[] nums) {
+        bool isReacheable = false;
+
+        if(nums.Length != 0 && nums.Length < 6) {
+            int lastInt = nums.Last();
+            int lastIntInx = Array.LastIndexOf(nums, lastInt);
+            Console.WriteLine(lastInt);
+
+            int i = 1;
+            if((nums[i+nums[i]] <= nums[lastIntInx]) && (nums[i+nums[i]] != 0)) {
+                isReacheable = true;
+            }
+
+            Console.WriteLine(nums[i+nums[i]]);
+        }
+
+        Console.WriteLine(isReacheable);
+        return isReacheable;
+    }
+}
