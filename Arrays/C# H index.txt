@@ -1,0 +1,33 @@
+public class Solution {
+    public int HIndex(int[] citations) {
+        //a few simple checks
+        if((citations.Length == 1) && (citations[0] != 0)) {
+            return citations.Length;
+        } else if((citations.Length == 1) && (citations[0] == 0)) {
+            return 0;
+        } else {
+            decimal sum = 0;
+            decimal num = 0;
+
+            for(int i=0; i<citations.Length; i++) {
+                sum += citations[i];
+                num += 1;
+            }
+
+            //find average
+            int avg = (int)Math.Round(sum/num);
+            Console.WriteLine("Average: " + avg);
+
+            int cnt = 0;
+            for(int i=0; i<citations.Length; i++) {
+                if(citations[i] >= avg) {
+                    cnt +=1;
+                }
+            }
+
+            Console.WriteLine("H-index: " + cnt);
+            return cnt;
+        }
+        
+    }
+}
