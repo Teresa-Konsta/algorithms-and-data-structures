@@ -1,0 +1,16 @@
+//given a short array
+public class Solution {
+    public int Jump(int[] nums) {
+        int j = 0;
+
+        for(int i=0; i+j<nums.Length; i++) {
+            if(nums[i+nums[i]] <= nums.Length) {
+                j +=1;
+            }
+            Console.WriteLine(nums[i]);
+        }
+
+        Console.WriteLine("Max Jump# " + j);
+        return j-1;
+    }
+}
