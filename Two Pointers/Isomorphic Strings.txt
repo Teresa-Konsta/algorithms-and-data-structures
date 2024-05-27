@@ -1,0 +1,30 @@
+public class Solution {
+    public bool IsIsomorphic(string s, string t) {
+        bool isIsomphic = true;
+        char[] sCharArr1 = s.ToCharArray();
+        char[] tCharArr1 = t.ToCharArray();
+
+        //filter arrays from duplicates
+        char[] sCharArr = sCharArr1.Distinct().ToArray();
+        char[] tCharArr = tCharArr1.Distinct().ToArray();
+
+        Dictionary<char, char> dict = new Dictionary<char, char>();
+
+        if(sCharArr.Length == tCharArr.Length) {
+            for(int i=0; i<sCharArr.Length; i++) {
+                if((!dict.ContainsKey(sCharArr[i]) && !dict.ContainsValue(tCharArr[i])) ||
+                (!dict.ContainsKey(tCharArr[i]) && !dict.ContainsValue(sCharArr[i]))) {
+                    dict.Add(sCharArr[i], tCharArr[i]);
+                } else {
+                    isIsomphic = false;
+                }
+
+                Console.WriteLine("s: " + sCharArr[i] + " t: " + tCharArr[i]);
+            }
+        } else {
+            isIsomphic = false;
+        }
+        
+        return isIsomphic;
+    }
+}
