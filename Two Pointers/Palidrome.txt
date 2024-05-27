@@ -1,0 +1,27 @@
+using System.Text.RegularExpressions;
+
+public class Solution {
+    public bool IsPalindrome(string s) {
+        bool isPldrome = true;
+        
+        //clear original from signs and spaces
+        //set everything to small letters
+        string sNew = Regex.Replace(s, "[^A-Za-z0-9]", "").ToLower();
+
+        char[] original = sNew.ToCharArray();
+        List<char> reverseList = original.ToList();
+        reverseList.Reverse();
+        char[] reverseArr = reverseList.ToArray();
+
+        for(int i=0; i<original.Length; i++) {
+            if(original[i] != reverseArr[i]) {
+                isPldrome = false;
+            }
+
+            //testing
+            Console.Write(original[i]);
+        }
+
+        return isPldrome;
+    }
+}
