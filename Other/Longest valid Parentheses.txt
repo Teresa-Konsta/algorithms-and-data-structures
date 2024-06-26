@@ -1,0 +1,26 @@
+using System.Collections.Generic;
+
+class Solution
+{
+    /* if there is a set of different brackets
+    public char findPairSymbol(char incomingChar) {
+        Dictionary<char, char> symbol = new Dictionary<char, char>();
+        symbol.Add('(', ')');
+        symbol.Add('{', '}');
+        symbol.Add('[', ']');
+        
+        char pair = symbol[incomingChar)];
+        return pair;
+    }*/
+    
+    public int maxLength(string S)
+    {
+        char[] stringChars = S.ToCharArray();
+        char pair1 = '(';
+        char pair2 = ')';
+
+	//loop to check the match and count
+        //to be continue
+    }
+
+}
