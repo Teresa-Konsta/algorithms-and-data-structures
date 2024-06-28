@@ -22,20 +22,19 @@ class Solution
         List<char> brakets2 = new List<char>();
 
 	    for(int i=0; i<stringChars.Length; i++) {
-	        if(stringChars[i] = pair1) {
+	        if(stringChars[i] == pair1) {
 	            brakets1.Add(stringChars[i]);
 	        } else {
 	            brakets2.Add(stringChars[i]);
 	        }
 	    }
 	    
-	    if(brakets1.Length > brakets2.Length) {
-	        return brakets2.Length*2;
-	    } else if(brakets2.Length > brakets1.Length) {
-	        return brakets1.Length*2;
+	    if(brakets1.Count > brakets2.Count) {
+	        return brakets2.Count*2;
+	    } else if(brakets2.Count > brakets1.Count) {
+	        return brakets1.Count*2;
 	    } else {
 	        return 0;
 	    }
     }
-
 }
