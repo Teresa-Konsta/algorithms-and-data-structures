@@ -13,11 +13,11 @@ class Solution
         return pair;
     }*/
     
-    public int maxLength(string S)
-    {
+    /* if pair could be considered both '()' and ')('
+	public int maxLength(string S) {
         char[] stringChars = S.ToCharArray();
         char pair1 = '(';
-        char pair2 = ')';
+        //char pair2 = ')';
         List<char> brakets1 = new List<char>();
         List<char> brakets2 = new List<char>();
 
@@ -33,6 +33,28 @@ class Solution
 	        return brakets2.Count*2;
 	    } else if(brakets2.Count > brakets1.Count) {
 	        return brakets1.Count*2;
+	    } else {
+	        return 0;
+	    }
+    }*/
+
+	//if it should be exactly '()'
+	public int maxLength(string S) {
+        char[] stringChars = S.ToCharArray();
+        char pair1 = '(';
+        char pair2 = ')';
+        List<char> brakets = new List<char>();
+        //List<char> brakets2 = new List<char>();
+
+	    for(int i=0; i<stringChars.Length-1; i++) {
+	        if(stringChars[i] == pair1 &&
+	            stringChars[i+1] == pair2) {
+	            brakets.Add(stringChars[i]);
+	        }
+	    }
+	    
+	    if(brakets.Count != 0) {
+	        return brakets.Count;
 	    } else {
 	        return 0;
 	    }
