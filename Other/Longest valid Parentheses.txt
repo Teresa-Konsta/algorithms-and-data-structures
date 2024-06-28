@@ -18,9 +18,24 @@ class Solution
         char[] stringChars = S.ToCharArray();
         char pair1 = '(';
         char pair2 = ')';
+        List<char> brakets1 = new List<char>();
+        List<char> brakets2 = new List<char>();
 
-	//loop to check the match and count
-        //to be continue
+	    for(int i=0; i<stringChars.Length; i++) {
+	        if(stringChars[i] = pair1) {
+	            brakets1.Add(stringChars[i]);
+	        } else {
+	            brakets2.Add(stringChars[i]);
+	        }
+	    }
+	    
+	    if(brakets1.Length > brakets2.Length) {
+	        return brakets2.Length*2;
+	    } else if(brakets2.Length > brakets1.Length) {
+	        return brakets1.Length*2;
+	    } else {
+	        return 0;
+	    }
     }
 
 }
