@@ -1,0 +1,31 @@
+//to be continue
+class Solution
+    {
+        //1->land, 0->water
+        //A closed island is a group of 1s surrounded by only 0s on all the boundaries
+        //An island is a 4-directional(up,right,down and left) connected part of 1's
+        public int closedIslands(int[][] matrix, int N, int M)
+        {
+            //counter for closed islands
+            int closedIslandNum = 0;
+            //validation, here simple
+            if(matrix == null) {
+                return closedIslandNum;
+            } else {
+                for(int i=0; i<M; i++) {
+                    for(int j=0; j<N; j++) {
+                        //check if it's not the first or last line and column
+                        //check if +/-1 are 0
+                        if(j!=0 || j!=(N-1)) {
+                            if((matrix[i-1][j] == 0) &&
+                            (matrix[i+1][j] == 0) &&
+                            (matrix[i][j-1] == 0) &&
+                            (matrix[i][j+1] == 0)) {
+                                closedIslandNum += 1;
+                            }
+                        }
+                    }
+                }
+                return closedIslandNum;
+            }
+        }
