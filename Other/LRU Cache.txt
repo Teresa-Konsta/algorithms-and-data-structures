@@ -1,0 +1,49 @@
+public class LRUCache {
+    HashMap<int, int> hm;
+    List<int> intlist;
+    int cpct;
+
+    //Initialize the LRU cache with positive size
+    //simple option without getters and setters
+    public LRUCache(int capacity) {
+        this.hm = new HashMap<int, int>();
+        this.intlist = new List<int>();
+        this.cpct = capacity;
+    }
+    
+    //Return the value of the key if the key exists, otherwise return -1
+    public int Get(int key) {
+        if(hm.ContainsKey(key)) {
+            intlist.Add(key);
+            return hm[key];
+        } else {
+            return -1;
+        }
+    }
+    
+    //Update the value of the key if the key exists.
+    //Otherwise, add the key-value pair to the cache.
+    //If the number of keys exceeds the capacity from this operation,
+    //evict the least recently used key.
+    public void Put(int key, int value) {
+        if(!hm.ContainsKey(key)) {
+            //check if the capacity is max -> remove the least used item
+            if(hm.Count == cpct) {
+                hm.Remove(intlist[0]);
+                intlist.RemoveAt(0);
+            }
+
+            hm.Add(key, value);
+        } else {
+            hm[key] = value;
+        }
+        intlist.Add(key);
+    }
+}
+
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * LRUCache obj = new LRUCache(capacity);
+ * int param_1 = obj.Get(key);
+ * obj.Put(key,value);
+ */
