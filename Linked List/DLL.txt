@@ -1,0 +1,74 @@
+//C#
+//in progress
+
+class Node
+{
+	public int data;
+        public Node previous;
+        public Node next;
+	//int size
+        
+        public DoublyLinkedListNode(int data)
+        {
+            this.data = data;
+            this.previous = null;
+            this.next = null;
+        }
+}
+
+class DoublyLinkedListNode
+    {
+        public int data;
+        public Node head;
+        public Node tail;
+	//int size
+        
+        public DoublyLinkedListNode(int data)
+        {
+            this.data = data;
+            this.head = null;
+            this.tail = null;
+        }
+    }
+
+class DoublyLinkedList
+{
+	//create list
+	List<DoublyLinkedListNode> dllList = new List<DoublyLinkedListNode>();
+
+	//add node -> first, middle, last
+	public void AddNode(int data, Node previous)
+	{
+		Node nd = new Node(data);
+		DoublyLinkedListNode dll = new DoublyLinkedListNode();
+	     if(previous != null)
+	     {
+		nd.previous = previous;
+		nd.next = null;
+		dll = nd;
+	     } else {
+		dll = nd;
+		dll.head = nd;
+	     }
+		dllList.Add(dll);
+	}
+	
+	//remove  node
+	public void RemoveNode(Node nd)
+	{
+		if(nd.next != null && nd.previous != null) {
+			nd.previous.next = nd.next;
+		}
+			dllList.Remove(nd);
+		
+	}
+
+	//clear list
+	public void Clear(DoublyLinkedListNode dllList)
+	{
+		for(int i=0; i<dllList.Length; i++)
+		{
+			dllList.Remove(dllList[i]);
+		}
+	}
+}
